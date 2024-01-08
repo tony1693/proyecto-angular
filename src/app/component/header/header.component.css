@@ -1,0 +1,26 @@
+:root{
+    --primaryColor:green;
+    --secundaryColor:black;
+    --thirdColor:darkgoldenrod;
+    --primaryfont:cursive;
+    
+}
+.container-fluid{   
+    background-color:var(--primaryColor); 
+    height: 120px;
+    margin-bottom: 40px;
+}
+#navbarNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}
+.navbar-brand{
+    font-size: 50px;
+    color:var(--thirdColor);
+    font-family:var(--primaryfont);
+}
+.pointer{
+    cursor: pointer;
+}
