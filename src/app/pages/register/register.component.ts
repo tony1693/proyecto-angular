@@ -9,5 +9,5 @@ import { FormRegisterComponent } from '../../component/form-register/form-regist
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-
+  
 }

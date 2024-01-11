@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row"style="display:flex;flex-direction:row">
+        <div class="card" style="width: 30rem;background-color: gray;">
+            <img src="{{user.photo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Juan Antonio Antolin Ruiz</h5>
+            </div>
+            <ul class="list-group list-group-flush"id="list">
+        
+                <input class="form-control"id="nombre" type="text" placeholder={{user.name}} aria-label="Disabled input example" disabled>
+                <input class="form-control"id="apellido" type="text" placeholder="{{user.last_name}}" aria-label="Disabled input example" disabled>
+                <input class="form-control"id="correo" type="text" placeholder="{{user.email}}" aria-label="Disabled input example" disabled>
+
+            </ul>
+           
+        </div>
+        <div class="card" style="width: 30rem;background-color: gray;">
+            <div class="title">
+                <h2 class="card-title"id="title">Editar Datos</h2>
+            </div>
+            <div class="input">
+                <input class="form-control"id="1" type="text" placeholder="Nombre" aria-label="default input example"#inputName>
+                <input class="form-control"id="2" type="text" placeholder="Apellido" aria-label="default input example"#inputSurName>
+                <input class="form-control"id="3" type="text" placeholder="Correo" aria-label="default input example"#inputEmail>
+                <input class="form-control"id="4" type="text" placeholder="URL" aria-label="default input example" #inputUrl>
+            </div>
+            <div class="buttom">
+                <button type="button" (click)="changeDate(inputName,inputSurName,inputEmail,inputUrl)" class="btn btn-outline-success">MODIFICAR</button>
+
+            </div>
+    </div>
+</div>
