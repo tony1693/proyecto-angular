@@ -1,0 +1,38 @@
+<form action="">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Titulo" aria-label="title"
+            aria-describedby="basic-addon1" #inputTitle>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Tapa Dura/Blanda" aria-label="type"
+            aria-describedby="basic-addon1" #inputType>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon2"></span>
+        <input type="text" class="form-control" placeholder="Autor" aria-label="author"
+            aria-describedby="basic-addon1" #inputAuthor>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3"></span>
+        <input type="text" class="form-control" placeholder="Precio" aria-label="price"
+            aria-describedby="basic-addon1" #inputPrice>
+    </div>
+    
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Id book" aria-label="id_book"
+            aria-describedby="basic-addon2" #inputCode>
+        <span class="input-group-text" id="basic-addon4">Numero</span>
+    </div>
+    
+    <div class="mb-3">
+        <label for="basic-url" class="form-label">URL</label>
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon5">https://</span>
+            <input class="form-control"id="photo" type="text" placeholder="URL Foto" aria-label="photo" #inputPhoto>
+        </div>
+        <div class="form-text" id="basic-addon6"></div>
+    </div>
+    <app-buttom [buttonText]="buttonTextParent" [buttonColor]="buttonColor" (click)="valuesInput(inputTitle,inputTitle,inputAuthor,inputPrice,inputPhoto,inputCode)"></app-buttom>
+</form>

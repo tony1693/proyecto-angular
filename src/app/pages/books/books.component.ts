@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
-import { Book } from '../../models/user';
-import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Book } from '../../shared/models/book';
 import { IdBookPipe } from '../../pipes/id-book.pipe';
+import { CardComponent } from '../../component/card/card.component';
+import { ButtomComponent } from '../../component/buttom/buttom.component';
+import { CommonModule } from '@angular/common';
+import { FormComponent } from '../../component/form/form.component';
 
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [CommonModule,IdBookPipe],
+  imports: [IdBookPipe,CardComponent,ButtomComponent,CommonModule,FormComponent],
   templateUrl: './books.component.html',
   styleUrl: './books.component.css'
 })
-export class BooksComponent {
-    public books:Book []= [
+export class BooksComponent implements OnInit {
+  @Output() valuesCard = new EventEmitter<Book>();
+    public books:Book []= [];
+
+    ngOnInit() {
+      this.books = [ 
       {
         id_book:1,
         id_user:5,
@@ -19,7 +26,8 @@ export class BooksComponent {
         type:'Tapa dura',
         author:'Miguel de Cervantes',
         price:12.99,
-        photo:'https://images-na.ssl-images-amazon.com/images/I/71fRMTejbyL.jpg'
+        photo:'https://images-na.ssl-images-amazon.com/images/I/71fRMTejbyL.jpg',
+        
       },
       {
         id_book:2,
@@ -28,7 +36,7 @@ export class BooksComponent {
         type:'Tapa dura',
         author:'Julio Verne',
         price:19.99,
-        photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cinq_Semaines_en_ballon_001.png/800px-Cinq_Semaines_en_ballon_001.png'
+        photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cinq_Semaines_en_ballon_001.png/800px-Cinq_Semaines_en_ballon_001.png',
       },
       {
         id_book:3,
@@ -37,28 +45,21 @@ export class BooksComponent {
         type:'Tapa dura',
         author:'Federico Garcia Lorca',
         price:29.99,
-        photo:'https://static.cegal.es/imagenes/marcadas/9788437/978843760560.gif'
+        photo:'https://static.cegal.es/imagenes/marcadas/9788437/978843760560.gif',
       },
-    ]
-    public valuesInput(inputTitle: HTMLInputElement, inputType: HTMLInputElement, inputAuthor: HTMLInputElement, inputPrice: HTMLInputElement, inputPhoto: HTMLInputElement, inputCode: HTMLInputElement) {
-      const newBook: Book = {
-        id_book: parseFloat(inputCode.value),
-        id_user: 5,
-        title: inputTitle.value,
-        type: inputType.value,
-        author: inputAuthor.value,
-        price: parseFloat(inputPrice.value),
-        photo: inputPhoto.value
-      };
-
-      this.books.push(newBook);
-      
-      inputTitle.value = '';
-      inputType.value = '';
-      inputAuthor.value = '';
-      inputPrice.value = '';
-      inputPhoto.value = '';
-      inputCode.value = '';
+];
     }
-    
+     
+    public getBooksData(newBook:Book) {
+      this.books.push(newBook) ;
+      console.log(newBook);
+      
+    }
+
+    onDeleteCard(bookToDelete: Book) {
+      const index = this.books.findIndex(book => book.id_book === bookToDelete.id_book);
+      if (index !== -1) {
+        this.books.splice(index, 1);
+      }
+    }
 }

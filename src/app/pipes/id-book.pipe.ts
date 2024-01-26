@@ -1,4 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Input, Pipe, PipeTransform } from '@angular/core';
+import { Book } from '../shared/models/book';
 
 @Pipe({
   name: 'idBook',
@@ -7,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class IdBookPipe implements PipeTransform {
 
   transform(value:Number):string {
-    return`Ref-301020`;
+    return `ref-${value}`;
   }
 
 }

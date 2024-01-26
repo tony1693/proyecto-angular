@@ -1,0 +1,18 @@
+.card{
+    height: 500px;
+    margin-bottom: 20px;
+    background-color:gainsboro;
+}
+#img{
+    height: 220px;
+    object-fit:contain;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btn-close{
+    position: relative;
+    top: 10px;
+}

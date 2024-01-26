@@ -1,21 +1,32 @@
+/* #linea{ */
+    /* display: flex; */
+    /* flex-direction: row; */
+/* } */
+/* .cards{ */
+    /* height: 500px; */
+    /* margin-bottom: 20px; */
+    /* background-color:gainsboro;
+    display: flex;
+    flex-direction: row;
 
-.card{
-    height: 500px;
-    margin-bottom: 20px;
-    background-color:gainsboro;
-}
+} */
 #img{
     height: 220px;
     object-fit:contain;
 }
 .row{
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: space-around; */
+    background-color: aqua;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    
 }
-.color-blue{
+/* .color-blue{
     background-color:lightgreen;
-}
+} */
+
 #input{
     display: flex;
     flex-direction: column;
@@ -30,17 +41,4 @@
     flex-direction: row;
     justify-content: center;
 }
-.form-control{
 
-    background-color:lightblue;
-}
-.buttom{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-#btn2{
-    width: 400px;
-    background-color:lightblue;
-}

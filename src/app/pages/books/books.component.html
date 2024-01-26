@@ -1,22 +1,7 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        @for(book of books; track book.title;let even = $even){
-            
-            <div class="card" style="width: 21rem;">
-                <img src="{{book.photo}}" id="img" class="card-img-top" alt="...">
-                <div  class="card-body">
-                    <p class="card-text">{{book.type}}</p>
-                    <h5 class="card-title">{{book.title}}</h5>
-                    <p class="card-text">{{book.author}}</p>
-                    <p class="card-text">{{book.id_book | idBook }}</p>
-                    <h3 class="price">{{book.price}}</h3>
-                    <button type="button" class="btn btn-outline-success"[ngClass]="even ? 'color-blue' : ''">COMPRAR</button>
-                </div>
-            </div>
-        }@empty {
-            <div class="alert alert-danger" role="alert">
-                No hay libros que añadir.
-              </div>
+        @for(book of books; track book.title;){
+            <app-card class="cards" [book]="book"(deleteCard)="onDeleteCard($event)"></app-card>
         }
     </div>
 </div>
@@ -26,17 +11,9 @@
         <div class="title">
             <h1 class="card-title"id="title">Añadir Libro</h1>
         </div>
+        
         <div class="input"id="input">
-            <input class="form-control"id="title2" type="text" placeholder="Titulo" aria-label="default input example"#inputTitle>
-            <input class="form-control"id="tape" type="text" placeholder="Tapa blanda/Dura" aria-label="default input example"#inputType>
-            <input class="form-control"id="author" type="text" placeholder="Author" aria-label="default input example"#inputAuthor>
-            <input class="form-control"id="price" type="text" placeholder="Precio" aria-label="default input example" #inputPrice>
-            <input class="form-control"id="photo" type="text" placeholder="Photo" aria-label="default input example" #inputPhoto>
-            <input class="form-control"id="code" type="text" placeholder="Codigo Libro" aria-label="default input example" #inputCode>
-
-        </div>
-        <div class="buttom">
-            <button type="button" (click)="valuesInput(inputTitle,inputType,inputAuthor,inputPrice,inputPhoto,inputCode)"id="btn2" class="btn btn-outline-success">AÑADIR</button>
-
+            <app-form (saveBooksData)="getBooksData($event)"></app-form>
+            
         </div>
 </div>
