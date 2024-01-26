@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="d-flex flex-row"id="linea">
         @for(book of books; track book.title;){
             <app-card class="cards" [book]="book"(deleteCard)="onDeleteCard($event)"></app-card>
         }
