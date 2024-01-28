@@ -1,49 +1,20 @@
-/* #linea{ */
-    /* display: flex; */
-    /* flex-direction: row; */
-/* } */
-/* .cards{ */
-    /* height: 500px; */
-    /* margin-bottom: 20px; */
-    /* background-color:gainsboro;
-    display: flex;
-    flex-direction: row;
 
-} */
 #img{
     height: 220px;
     object-fit:contain;
-}
-.row{
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-around; */
-    background-color: aqua;
-    display: flex;
-    flex-direction: row;
-    
-}
-/* .color-blue{
-    background-color:lightgreen;
-} */
-
-#input{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 400px;
-    width: 550px;
-    margin-left: 220px;
-
-}
-.title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 #linea{
     justify-content: space-around;
     align-items:start;
     flex-wrap: wrap;
 }
-
+.form-control{
+   background-color:darkgray;
+}
+#Search{
+    margin: 25px;
+}
+#row{
+    justify-content: space-around;
+    margin: 20px;
+}

@@ -14,6 +14,7 @@ export class FormComponent {
     public buttonTextParent = 'Save';
     public buttonColor = Color.green;
     @Output() saveBooksData = new EventEmitter<Book>();
+    
   
     public valuesInput(inputTitle: HTMLInputElement, inputType: HTMLInputElement, inputAuthor: HTMLInputElement, inputPrice: HTMLInputElement, inputPhoto: HTMLInputElement, inputCode: HTMLInputElement) {
       const newBook: Book = {
