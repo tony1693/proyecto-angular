@@ -14,8 +14,8 @@ import { Color } from '../../shared/models/enums/color.enums';
 })
 export class UpdateBookComponent {
   @Output() saveBooksData = new EventEmitter<Book>();
-  public buttonTextParent = 'Search';
-  public buttonColor = Color.green;
+  public buttonTextParent = 'Modify';
+  public buttonColor = Color.red;
   constructor(private readonly booksService: BooksService,private readonly router:Router) {}
   public books:Book []= [];
   ngOnInit(){

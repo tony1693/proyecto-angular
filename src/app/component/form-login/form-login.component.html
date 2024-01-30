@@ -1,0 +1,111 @@
+<!-- 
+  
+
+  <form id="form" #templateForm="ngForm" (ngSubmit)="submit(templateForm.value)">
+    
+    <div class="mb-3">
+        <h1 class="title">LOGIN</h1>
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+            type="email"
+            name="email"
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            class="form-control"
+            id="exampleInputEmail1" 
+            aria-describedby="emailHelp"
+            required
+            email
+        >
+        @if ( (email.dirty || email.touched) && email.invalid)  {
+            @if (email.errors && email.errors['required'])  {
+              <div >
+                <p class="error">*Campo obligatorio</p>
+              </div>
+            }
+            @if (email.errors && email.errors['email'])  {
+              <div >
+                <p class="error">*Email incorrecto</p>
+              </div>
+            }
+          }
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+            type="password"
+            name="password"
+            [(ngModel)]="user.password"
+            #password="ngModel"
+            class="form-control"
+            id="exampleInputPassword1"
+            required
+        >
+        @if ( (password.dirty || password.touched) && password.invalid)  {
+            @if (password.errors && password.errors['required'])  {
+              <div >
+                <p class="error">*Campo obligatorio</p>
+              </div>
+            }
+            @if (password.errors && password.errors['minlength'])  {
+              <div >
+                <p class="error">*Contraseña muy corta</p>
+              </div>
+            }
+          }
+        {{user.email}}
+        {{user.password}} 
+    </div> -->
+    <!-- <button type="submit" [disabled]="templateForm.invalid" [ngClass]="buttonColor">{{buttonText}}</button> -->
+<!-- </form> -->
+
+
+<form id="form" [formGroup]="reactiveForm" (ngSubmit)="handleSubmit()">
+    
+    <div class="mb-3">
+        <h1 class="title">LOGIN</h1>
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            id="exampleInputEmail1" 
+            aria-describedby="emailHelp"
+        >
+        @if ( (reactiveForm.get('email')?.dirty || reactiveForm.get('email')?.touched) && reactiveForm.get('email')?.invalid)  {
+            @if (reactiveForm.get('email')?.hasError('required'))  {
+              <div >
+                <p class="error">*Campo obligatorio</p>
+              </div>
+            }
+            @if (reactiveForm.get('email')?.hasError('email'))  {
+              <div >
+                <p class="error">*Email incorrecto</p>
+              </div>
+            }
+          }
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            id="exampleInputPassword1"
+        >
+        @if ( (reactiveForm.get('password')?.dirty || reactiveForm.get('password')?.touched) && reactiveForm.get('password')?.invalid)  {
+            @if (reactiveForm.get('password')?.hasError('required'))  {
+              <div >
+                <p class="error">*Campo obligatorio</p>
+              </div>
+            }
+            @if (reactiveForm.get('password')?.hasError('minlength'))  {
+              <div >
+                <p class="error">*Contraseña muy corta</p>
+              </div>
+            }
+          }
+        
+    </div>
+    <button [disabled]="reactiveForm.invalid"  type="submit" [ngClass]="buttonColor">{{buttonText}}</button>
+</form>

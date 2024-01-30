@@ -1,4 +1,27 @@
 .container{
-    width: 400px;
+    width: 950px;
+    background-color: grey;
+    margin-bottom: 15px;
     
+}
+.error {
+    color: red;
+}
+.error2{
+    color: yellow;
+}
+.error4{
+    color: yellow;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#input{
+    width: 650px;
+    margin-left: 100px;
+}
+#button{
+    margin-left: 380px;
 }
