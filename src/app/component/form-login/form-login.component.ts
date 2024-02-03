@@ -25,11 +25,5 @@ export class FormLoginComponent {
     console.log(this.reactiveForm)
   }
 
-  // public submit(form:NgForm) {
-    // console.log(form);
-    // console.log(this.user);
-    // 
-    // 
-  // }
    
 }

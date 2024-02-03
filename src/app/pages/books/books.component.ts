@@ -30,7 +30,10 @@ export class BooksComponent implements OnInit {
     }
  
     onDeleteCard(bookToDelete: Book) {
-      this.booksService.delete(Number())
+      const index = this.books.findIndex(book => book.id_book === bookToDelete.id_book);
+      if (index !== -1) {
+        this.books.splice(index, 1);
+      }    
     }
 
     public findBook(inputCode:HTMLInputElement) {

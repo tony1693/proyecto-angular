@@ -62,7 +62,7 @@
         <div class="mb-3" id="input">
             <label for="exampleInputEmail1" class="form-label">URL:</label>
             <input 
-                type="text" 
+                type="url" 
                 class="form-control" 
                 id="exampleInputEmail1" 
                 aria-describedby="emailHelp"
@@ -75,6 +75,7 @@
                       </div>
                     }
                   }
+                  
         </div>
         <div class="mb-3" id="input">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -92,7 +93,12 @@
                     }
                     @if (reactiveForm.get('password')?.hasError('minlength'))  {
                       <div >
-                        <p class="error2">*Contraseña muy corta</p>
+                        <p class="error2">*Contraseña poco segura</p>
+                      </div>
+                    }
+                    @if (reactiveForm.get('password')?.hasError('pattern')) {
+                      <div>
+                          <p class="error3">*No se pueden validar símbolos en la contraseña</p>
                       </div>
                     }
                   }
