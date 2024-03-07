@@ -22,31 +22,44 @@ export class BooksComponent implements OnInit {
     public singleBook!:Book | undefined;
     public noBookText:string = "";
     public books:Book []= [];
-    constructor(private readonly booksService: BooksService) {}
+    constructor(private readonly booksService: BooksService) {
+      this.books = [];
+
+      this.booksService.getAllApi().subscribe((data:any) => {
+        this.books = data;
+      })
+    }
 
     ngOnInit() {
-      this.books = this.booksService.getAll();
-      
+      // this.books = this.booksService.getAll();
+      this.booksService.getAllApi().subscribe((data:any) => {
+        this.books = data;
+      })
     }
  
     onDeleteCard(bookToDelete: Book) {
-      const index = this.books.findIndex(book => book.id_book === bookToDelete.id_book);
-      if (index !== -1) {
-        this.books.splice(index, 1);
-      }    
+      // const index = this.books.findIndex(book => book.id_book === bookToDelete.id_book);
+      // if (index !== -1) {
+      //   this.books.splice(index, 1);
+      
+      // } 
+      this.booksService.deleteApi(bookToDelete).subscribe((data:any) => {
+        this.booksService.getAllApi().subscribe((data:any) => {
+          this.books = data;
+        })        
+    })
+   
     }
 
-    public findBook(inputCode:HTMLInputElement) {
-      const book = this.booksService.getOne(Number(inputCode.value));
-      console.log(inputCode);
-      
-        if(book) {
-          this.singleBook = book;
-          this.noBookText = '';
-        } else {
+    public findBook(inputCode: HTMLInputElement) {
+      this.booksService.getOneApi(Number(inputCode.value)).subscribe((book:Book ) => {
+            this.singleBook = book;
+            this.noBookText = '';
+          },
+          (error) => {
             this.singleBook = undefined;
-            this.noBookText = 'I couldn`t find any book with this id'
-               
+            this.noBookText = 'No se ha encontrado ningún libro con esta ID',error;
           }
+        );
     }
 }

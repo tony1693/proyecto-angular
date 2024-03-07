@@ -39,6 +39,9 @@ export class AddBookComponent {
         photo: inputPhoto.value,
       };
       this.booksService.add(newBook);
+      this.booksService.addApi(newBook).subscribe((data) => {
+        
+      })
       this.router.navigateByUrl('/books')
       
       inputTitle.value = '';

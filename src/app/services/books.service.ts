@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../shared/models/book';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
   private books:Book[] = this.setBooks();
-  constructor() { }
+  private url: string = "http://localhost:2000";
+  constructor(private http: HttpClient) { }
+
+
 
   public getAll(): Book[] {
     return this.books;
@@ -70,5 +74,24 @@ export class BooksService {
       }
     ];
     return books;
+  }
+  public getAllApi()  {
+    return this.http.get(`${this.url}/books`);
+  }
+
+  public addApi (book:Book) {
+    return this.http.post(`${this.url}/books`, book);
+  }
+
+  public updateApi (book: Book) {
+    return this.http.put(`${this.url}/books?id=${book.id_book}`, book);
+  }
+
+  public deleteApi (book:Book) {
+    return this.http.delete(`${this.url}/books?id=${book.id_book}`);
+
+  }
+  public getOneApi(id_book:number) {
+    return this.http.get<Book>(`${this.url}/books?id=${id_book}`)
   }
 }

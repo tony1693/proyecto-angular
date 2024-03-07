@@ -31,7 +31,11 @@ export class UpdateBookComponent {
       price: parseFloat(inputPrice.value),
       photo: inputPhoto.value,
     };
-    this.booksService.edit(newBook);
+    // this.booksService.edit(newBook);
+    this.booksService.updateApi(newBook).subscribe((data) => {
+      console.log(data);
+      
+    })
     this.router.navigateByUrl('/books')
   
   inputTitle.value = '';
